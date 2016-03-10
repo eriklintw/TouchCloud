@@ -13,6 +13,8 @@
 
     <context:component-scan base-package="tw.com.touchcloud.controller" />
  
+    <context:annotation-config/>
+    
     <mvc:annotation-driven />
 
     <bean
