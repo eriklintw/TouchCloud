@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tw.com.touchcloud.dao.impl;
+package tw.com.touchcloud.logic.dao.impl;
 
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
-import tw.com.touchcloud.dao.PowerStatusDao;
+import tw.com.touchcloud.logic.dao.PowerStatusDao;
 import tw.com.touchcloud.entity.PowerStatus;
 
 /**

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tw.com.touchcloud.dao;
+package tw.com.touchcloud.logic.dao;
 
 import tw.com.touchcloud.entity.PowerStatus;
 

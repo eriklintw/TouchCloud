@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tw.com.touchcloud.dao.impl;
+package tw.com.touchcloud.logic.dao.impl;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -13,7 +13,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import tw.com.touchcloud.dao.GenericDao;
+import tw.com.touchcloud.logic.dao.GenericDao;
 
 /**
  *

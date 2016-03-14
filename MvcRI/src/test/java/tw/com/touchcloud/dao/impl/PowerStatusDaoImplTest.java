@@ -6,7 +6,7 @@
 package tw.com.touchcloud.dao.impl;
 
 import java.util.List;
-import javax.transaction.Transactional;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,7 +17,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import tw.com.touchcloud.dao.PowerStatusDao;
+import org.springframework.transaction.annotation.Transactional;
+import tw.com.touchcloud.logic.dao.PowerStatusDao;
 import tw.com.touchcloud.entity.PowerStatus;
 
 /**
