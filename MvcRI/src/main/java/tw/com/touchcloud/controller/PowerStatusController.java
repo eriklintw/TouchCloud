@@ -38,13 +38,13 @@ public class PowerStatusController {
     }
 
     @RequestMapping(value = "/powerStatus/", method = RequestMethod.POST)
-    public ResponseEntity<Void> addPowerStatus(@RequestBody PowerStatus user, UriComponentsBuilder ucBuilder) {
-        System.out.println("Creating PowerStatus " + user.getContent());
+    public ResponseEntity<Void> addPowerStatus(@RequestBody PowerStatus newStatus, UriComponentsBuilder ucBuilder) {
+        System.out.println("Creating PowerStatus " + newStatus);
 
-        service.addSignal(user);
+        service.addSignal(newStatus);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/powerStatus/{id}").buildAndExpand(user.getUuid()).toUri());
+        headers.setLocation(ucBuilder.path("/powerStatus/{id}").buildAndExpand(newStatus.getUuid()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 }

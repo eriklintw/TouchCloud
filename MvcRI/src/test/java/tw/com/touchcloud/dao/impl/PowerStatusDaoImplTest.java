@@ -5,7 +5,11 @@
  */
 package tw.com.touchcloud.dao.impl;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -36,7 +40,31 @@ public class PowerStatusDaoImplTest {
     @Transactional
     public void test() {
         List<PowerStatus> list = dao.getAll();
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+           String value = mapper.writeValueAsString(list.get(0));
+           System.out.println(value);
+        } catch (JsonProcessingException ex) {
+            Logger.getLogger(PowerStatusDaoImplTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        System.out.println(list.size());
+        
+        /*
+        {
+	"address": "e2:a4:39:78:d3:76",
+	"manufacturerId": 29012,
+	"batteryLevel": "93%",
+	"majorId": 21617,
+	"minorId": 1,
+	"uuid": "e2c56db5dffb48d2b060d0f5a71096e0",
+	"mac": "30:E0:90:78:d3:76",
+	"isBatteryLow": false
+        }
+        
+        
+        
+        
+        */
+        
     }
 }

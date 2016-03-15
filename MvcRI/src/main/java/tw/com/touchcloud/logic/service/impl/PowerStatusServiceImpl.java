@@ -18,25 +18,18 @@ import tw.com.touchcloud.entity.PowerStatus;
  * @author ErikLin
  */
 @Service
+@Transactional
 public class PowerStatusServiceImpl implements PowerStatusService {
 
     @Autowired
     private PowerStatusDao dao;
 
-    @Transactional
     public List<PowerStatus> findAll() {
         return this.dao.getAll();
     }
 
-    public void addSignal(String content) {
-        PowerStatus s = new PowerStatus();
-        s.setContent(content);
-        s.setUuid(System.currentTimeMillis());
-        this.dao.saveOrUpdate(s);
-    }
-
     public void addSignal(PowerStatus s) {
-        s.setUuid(System.currentTimeMillis());
+        s.setUid(System.currentTimeMillis());
         this.dao.saveOrUpdate(s);
     }
 }

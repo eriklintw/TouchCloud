@@ -15,7 +15,6 @@ import tw.com.touchcloud.entity.PowerStatus;
  */
 @Transactional
 public interface PowerStatusService {
-    public void addSignal(String content);
     public void addSignal(PowerStatus s);
     public List<PowerStatus> findAll();
 }

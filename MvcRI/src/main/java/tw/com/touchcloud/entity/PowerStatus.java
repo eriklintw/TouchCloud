@@ -6,10 +6,13 @@
 package tw.com.touchcloud.entity;
 
 import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -18,50 +21,116 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "PowerStatus")
+@NamedQueries({
+    @NamedQuery(name = "PowerStatus.findAll", query = "SELECT p FROM PowerStatus p")})
 public class PowerStatus implements Serializable {
 
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
-    @Column(name = "UUID")
-    private Long uuid;
-    @Basic(optional = false)
-    @Column(name = "CONTENT")
-    private String content;
+    @Column(name = "uid")
+    private Long uid;
+    @Column(name = "address")
+    private String address;
+    @Column(name = "manufacturerId")
+    private Integer manufacturerId;
+    @Column(name = "batteryLevel")
+    private String batteryLevel;
+    @Column(name = "majorId")
+    private Integer majorId;
+    @Column(name = "minorId")
+    private Integer minorId;
+    @Column(name = "uuid")
+    private String uuid;
+    @Column(name = "mac")
+    private String mac;
+    @Column(name = "isBatteryLow")
+    private Boolean isBatteryLow;
 
     public PowerStatus() {
     }
 
-    public PowerStatus(Long uuid) {
-        this.uuid = uuid;
+    public PowerStatus(Long uid) {
+        this.uid = uid;
     }
 
-    public PowerStatus(Long uuid, String content) {
-        this.uuid = uuid;
-        this.content = content;
+    public Long getUid() {
+        return uid;
     }
 
-    public Long getUuid() {
+    public void setUid(Long uid) {
+        this.uid = uid;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Integer getManufacturerId() {
+        return manufacturerId;
+    }
+
+    public void setManufacturerId(Integer manufacturerId) {
+        this.manufacturerId = manufacturerId;
+    }
+
+    public String getBatteryLevel() {
+        return batteryLevel;
+    }
+
+    public void setBatteryLevel(String batteryLevel) {
+        this.batteryLevel = batteryLevel;
+    }
+
+    public Integer getMajorId() {
+        return majorId;
+    }
+
+    public void setMajorId(Integer majorId) {
+        this.majorId = majorId;
+    }
+
+    public Integer getMinorId() {
+        return minorId;
+    }
+
+    public void setMinorId(Integer minorId) {
+        this.minorId = minorId;
+    }
+
+    public String getUuid() {
         return uuid;
     }
 
-    public void setUuid(Long uuid) {
+    public void setUuid(String uuid) {
         this.uuid = uuid;
     }
 
-    public String getContent() {
-        return content;
+    public String getMac() {
+        return mac;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setMac(String mac) {
+        this.mac = mac;
+    }
+
+    public Boolean getIsBatteryLow() {
+        return isBatteryLow;
+    }
+
+    public void setIsBatteryLow(Boolean isBatteryLow) {
+        this.isBatteryLow = isBatteryLow;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (uuid != null ? uuid.hashCode() : 0);
+        hash += (uid != null ? uid.hashCode() : 0);
         return hash;
     }
 
@@ -72,7 +141,7 @@ public class PowerStatus implements Serializable {
             return false;
         }
         PowerStatus other = (PowerStatus) object;
-        if ((this.uuid == null && other.uuid != null) || (this.uuid != null && !this.uuid.equals(other.uuid))) {
+        if ((this.uid == null && other.uid != null) || (this.uid != null && !this.uid.equals(other.uid))) {
             return false;
         }
         return true;
@@ -80,7 +149,7 @@ public class PowerStatus implements Serializable {
 
     @Override
     public String toString() {
-        return "tw.com.touchcloud.entity.PowerStatus[ uuid=" + uuid + " ]";
+        return "tw.com.touchcloud.entity.PowerStatus[ uid=" + uid + " ]";
     }
     
 }
