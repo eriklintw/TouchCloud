@@ -5,6 +5,7 @@
  */
 package tw.com.touchcloud.logic.service.impl;
 
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,9 @@ public class PowerStatusServiceImpl implements PowerStatusService {
     }
 
     public void addSignal(PowerStatus s) {
-        s.setUid(System.currentTimeMillis());
+        Date now = new Date();
+        s.setUid(now.getTime());
+        s.setUpdateTime(now);
         this.dao.saveOrUpdate(s);
     }
 }

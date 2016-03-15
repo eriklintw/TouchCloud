@@ -6,7 +6,7 @@
 package tw.com.touchcloud.entity;
 
 import java.io.Serializable;
-
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -47,12 +49,21 @@ public class PowerStatus implements Serializable {
     private String mac;
     @Column(name = "isBatteryLow")
     private Boolean isBatteryLow;
+    @Basic(optional = false)
+    @Column(name = "updateTime")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updateTime;
 
     public PowerStatus() {
     }
 
     public PowerStatus(Long uid) {
         this.uid = uid;
+    }
+
+    public PowerStatus(Long uid, Date updateTime) {
+        this.uid = uid;
+        this.updateTime = updateTime;
     }
 
     public Long getUid() {
@@ -125,6 +136,14 @@ public class PowerStatus implements Serializable {
 
     public void setIsBatteryLow(Boolean isBatteryLow) {
         this.isBatteryLow = isBatteryLow;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     @Override

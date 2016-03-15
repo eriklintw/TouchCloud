@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author ErikLin
  */
 @Controller
-public class HelloWorldController {
+public class IndexController {
 
 
     @RequestMapping("/hello")
@@ -25,8 +25,8 @@ public class HelloWorldController {
         model.addAttribute("name", name);
         
         //returns the view name
-        return "helloworld";
-
+        //return "helloworld";
+        return "index";
     }
 
 }
