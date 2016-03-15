@@ -29,14 +29,14 @@ import tw.com.touchcloud.entity.PowerStatus;
  *
  * @author ErikLin
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:application-context.xml")
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations = "classpath:application-context.xml")
 public class PowerStatusDaoImplTest {
 
     @Autowired
     private PowerStatusDao dao;
 
-    @Test
+    //@Test
     @Transactional
     public void test() {
         List<PowerStatus> list = dao.getAll();
