@@ -397,6 +397,7 @@
                                     <th>uuid</th>
                                     <th>mac</th>
                                     <th>isBatteryLow</th>
+                                    <th>updateTime</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -409,6 +410,7 @@
                                     <td>e2c56db5dffb48d2b060d0f5a71096e0</td>
                                     <td>30:E0:90:78:d3:76</td>
                                     <td>false</td>
+                                    <td>xxx</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -458,6 +460,7 @@
                                 row.append($('<td></td>').text(data.uuid));
                                 row.append($('<td></td>').text(data.mac));
                                 row.append($('<td></td>').text(data.isBatteryLow));
+                                row.append($('<td></td>').text(data.displayUpdateTime));
                                 $('#dataTables-example > tbody').append(row);
                             });
                         },
