@@ -7,11 +7,13 @@
     <packaging>pom</packaging>
   
     <properties>
+        <java.compiler.version>1.7</java.compiler.version>
         <spring.version>4.2.5.RELEASE</spring.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     
     <modules>
     <module>WebRI</module>
-  </modules>
+        <module>ServiceRI</module>
+    </modules>
 </project>
