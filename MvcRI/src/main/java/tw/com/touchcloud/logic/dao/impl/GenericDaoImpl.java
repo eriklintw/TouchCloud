@@ -11,8 +11,10 @@ import java.lang.reflect.Type;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import tw.com.touchcloud.enumeration.SqlOrder;
 import tw.com.touchcloud.logic.dao.GenericDao;
 
 /**
@@ -71,5 +73,16 @@ public abstract class GenericDaoImpl <E, K extends Serializable>  implements Gen
     @Override
     public List<E> getAll() {
         return currentSession().createCriteria(daoType).list();
+    }
+    
+    @Override
+    public List<E> getAll(SqlOrder dir, String columnName) {
+        Order order = null;
+        if(dir == SqlOrder.ASC){
+            order = Order.asc(columnName);
+        }else if(dir == SqlOrder.DESC){
+            order = Order.desc(columnName);
+        }
+        return currentSession().createCriteria(daoType).addOrder(order).list();
     }
 }
