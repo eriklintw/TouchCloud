@@ -36,7 +36,7 @@ public class PowerStatusDaoImplTest {
     @Autowired
     private PowerStatusDao dao;
 
-    //@Test
+   // @Test
     @Transactional
     public void test() {
         List<PowerStatus> list = dao.getAll();
