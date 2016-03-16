@@ -16,6 +16,13 @@
     <url>http://maven.apache.org</url>
 
     <dependencies>
+        <!-- service module-->
+        <dependency>
+            <groupId>tw.com.touchcloud</groupId>
+            <artifactId>ServiceRI</artifactId>
+            <version>1.0</version>     
+        </dependency>
+        
         <!-- JavaEE servlet-->
         <dependency>
             <groupId>javax.servlet</groupId>
