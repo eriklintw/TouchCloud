@@ -23,6 +23,9 @@
         <property name="maxActive" value="10" />
         <property name="maxIdle" value="5" />
         <property name="minIdle" value="2" />
+        <property name="initSQL" value="select 1"/>
+        <property name="validationQuery" value="select 1"/>
+        <property name="testOnBorrow" value="true"/>
     </bean>
     
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" >
