@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tw.com.touchcloud.logic.dao;
+package tw.com.touchcloud.serviceri.dao;
 
 import java.util.List;
-import tw.com.touchcloud.enumeration.SqlOrder;
 
 /**
  *
@@ -19,6 +18,4 @@ public interface GenericDao <E,K> {
     public void remove(E entity);
     public E find(K key);
     public List<E> getAll() ;
-    
-    public List<E> getAll(SqlOrder dir, String columnName) ;
 }

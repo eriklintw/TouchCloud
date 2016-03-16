@@ -15,7 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 import tw.com.touchcloud.logic.service.PowerStatusService;
 import tw.com.touchcloud.logic.dao.PowerStatusDao;
 import tw.com.touchcloud.entity.PowerStatus;
+
 import tw.com.touchcloud.vo.PowerStatusVo;
+
+import tw.com.touchcloud.enumeration.SqlOrder;
+
 
 /**
  *
@@ -29,9 +33,10 @@ public class PowerStatusServiceImpl implements PowerStatusService {
     private PowerStatusDao dao;
 
     public List<PowerStatus> findAll() {
+
         //BeanUtils
                 
-        List<PowerStatus> list = this.dao.getAll();
+        List<PowerStatus> list = this.dao.getAll(SqlOrder.DESC,"updateTime");
         
         if(list != null){
             List<PowerStatus> rtnList = new ArrayList<PowerStatus>();
