@@ -11,6 +11,6 @@
         <h1>Hi : ${param.name} (from ${sessionScope.httpMethod})</h1>
         
         <h2>get 出現亂碼，Container需要設定</h2>
-        <h2>post 出現亂碼，Container需要設定</h2>
+        <h2>post 出現亂碼，web.xml需要設定</h2>
     </body>
 </html>
