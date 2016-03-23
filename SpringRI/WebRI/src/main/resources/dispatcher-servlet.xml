@@ -18,6 +18,7 @@
     <mvc:annotation-driven />
     
     <!-- Mapping Static Resources -->
+    <mvc:resources mapping="/resources/**" location="/resources/" />
 <!--    
     <mvc:resources mapping="/bower_components/**" location="/bower_components/" />
     <mvc:resources mapping="/dist/**" location="/dist/" />
