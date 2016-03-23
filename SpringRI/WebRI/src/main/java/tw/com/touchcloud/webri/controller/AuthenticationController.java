@@ -21,24 +21,11 @@ import org.springframework.security.core.userdetails.UserDetails;
  * @author ErikLin
  */
 @Controller
-public class AuthenticationController {
-
-    @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
-    public String homePage(ModelMap model) {
-        model.addAttribute("greeting", "Hi, Welcome to mysite. ");
-        return "welcome";
-    }
-
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String adminPage(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
-        return "admin";
-    }
-
-    @RequestMapping(value = "/db", method = RequestMethod.GET)
-    public String dbaPage(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
-        return "dba";
+public class AuthenticationController extends BaseController{
+    
+     @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String loginPage() {
+        return "auth/login";
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -47,24 +34,14 @@ public class AuthenticationController {
         if (auth != null) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
-        return "welcome";
+        return "auth/login";
     }
 
     @RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
     public String accessDeniedPage(ModelMap model) {
         model.addAttribute("user", getPrincipal());
-        return "accessDenied";
+        return "auth/accessDenied";
     }
 
-    private String getPrincipal() {
-        String userName = null;
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        if (principal instanceof UserDetails) {
-            userName = ((UserDetails) principal).getUsername();
-        } else {
-            userName = principal.toString();
-        }
-        return userName;
-    }
 }
